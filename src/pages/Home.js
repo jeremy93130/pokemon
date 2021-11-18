@@ -27,24 +27,40 @@ const Home = () => {
             {pokemon === null ?
                 <h2>Il n'y a pas de pokemon</h2>
                 :
-                <div className="container flex">
-                    <div className="image">
-                        <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/${id}.png`} alt={pokemon.name} />
-                        <div className="infos">
-                            <h1>{pokemon.name}</h1>
-                            <p>height : {pokemon.height} -  weight : {pokemon.weight}</p>
-                            <p>types: </p>
-                            {pokemon.types.map(type => (
-                                <li>{type.type.name}</li>
-                            ))}
+                <div className="aligne">
+                    <div className="container flex">
+                        <div className="image">
+                            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`} alt={pokemon.name} />
+                            <div className="infos">
+                                <h1>{pokemon.name}</h1>
+                                <p>height : {pokemon.height} -  weight : {pokemon.weight}</p>
+                                <p>types: </p>
+                                {pokemon.types.map(type => (
+                                    <li>{type.type.name}</li>
+                                ))}
+                            </div>
                         </div>
-                        <div className="button">
-                            <button type="button" onClick={randomButton}>Random Pokemon</button>
+                        <div className="image">
+                            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/${id}.png`} alt={pokemon.name} />
+                            <div className="infos">
+                                <h1>{pokemon.name}</h1>
+                                <p>height : {pokemon.height} -  weight : {pokemon.weight}</p>
+                                <p>types: </p>
+                                {pokemon.types.map(type => (
+                                    <li>{type.type.name}</li>
+                                ))}
+                            </div>
                         </div>
                     </div>
+                    <div className="button">
+                        <button type="button" onClick={randomButton}>Random Pokemon</button>
+                    </div>
                 </div>
+
             }
+
         </>
+
     )
 }
 

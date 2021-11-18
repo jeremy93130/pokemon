@@ -13,8 +13,8 @@ body {
 }
 
 .container {
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .image {
@@ -24,6 +24,7 @@ body {
   border: 1px solid darkgray;
   background-color: black;
   box-shadow: 20px 20px 20px black;
+  margin: 0 40px;
 }
 
 img {
@@ -36,6 +37,12 @@ img {
   text-transform: capitalize;
   text-align: center;
   margin-bottom: 20px;
+}
+
+.button {
+  justify-content: center;
+  display: flex;
+  margin-top: 30px;
 }
 
 button {

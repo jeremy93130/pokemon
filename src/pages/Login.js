@@ -2,6 +2,7 @@ import { useFormik } from "formik"
 import * as Yup from "yup"
 import { Input, Button } from "@chakra-ui/react"
 import { FormControl, FormLabel, FormErrorMessage } from "@chakra-ui/form-control"
+import { useContext } from "react"
 
 const Login = () => {
     const formik = useFormik({
@@ -10,7 +11,7 @@ const Login = () => {
             password: "yoyoyoyo"
         },
         onSubmit: values => {
-            console.log(values)
+            // setIsLogged()
         },
         validationSchema: Yup.object().shape({
             username: Yup.string()
