@@ -2,8 +2,8 @@ import { useState, useEffect } from "react"
 
 
 const Home = () => {
-    const [pokemon, setPokemon] = useState([])
-    // const [id, setId] = useState(1)
+    const [pokemon, setPokemon] = useState(null)
+    const [id, setId] = useState(1)
 
     useEffect(() => {
         fetch("https://pokeapi.co/api/v2/pokemon/1")
@@ -12,13 +12,39 @@ const Home = () => {
             )
     }, [])
 
+    function randomButton() {
+        let random = Math.floor(Math.random() * (151 - 1 + 1) + 1)
+        setId(random)
+
+        fetch(`https://pokeapi.co/api/v2/pokemon/${random}`)
+            .then(res => res.json())
+            .then(res => setPokemon(res)
+            )
+    }
 
     return (
-        <div>
-            <img src={pokemon} alt={pokemon.name} />
-            <h1>{pokemon.name}</h1>
-            <p>{pokemon.height} - {pokemon.weight}</p>
-        </div>
+        <>
+            {pokemon === null ?
+                <h2>Il n'y a pas de pokemon</h2>
+                :
+                <div className="container flex">
+                    <div className="image">
+                        <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/${id}.png`} alt={pokemon.name} />
+                        <div className="infos">
+                            <h1>{pokemon.name}</h1>
+                            <p>height : {pokemon.height} -  weight : {pokemon.weight}</p>
+                            <p>types: </p>
+                            {pokemon.types.map(type => (
+                                <li>{type.type.name}</li>
+                            ))}
+                        </div>
+                        <div className="button">
+                            <button type="button" onClick={randomButton}>Random Pokemon</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </>
     )
 }
 

@@ -8,6 +8,9 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Nav from './components/Nav';
 
+import "./App.css"
+
+
 const App = () => {
   return (
     <>
